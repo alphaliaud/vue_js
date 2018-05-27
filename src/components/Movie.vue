@@ -15,11 +15,11 @@
         <div class="moovie-info ">
           <div class="moovie-state flex-center">
             <p>{{ movie.year }}</p>
-            <p>{{ movie.reaName }}</p>
+            <p>{{ movie.directName }}</p>
           </div>
 
           <div class="card-tag flex-center">
-            <p>{{ movie.kind }}</p>
+            <p>{{ movie.gender }}</p>
             <p>{{ movie.language }}</p>
           </div>
         </div>

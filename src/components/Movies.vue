@@ -11,15 +11,15 @@
                 <i class="far fa-edit fa-lg icon-style-1"></i>
               </div>
               <div class="card-btn-2 absolute flexcenter icon-style-2">
-                <button class="btn-ben" v-model="movie.id" v-on:click="delMovie"><i class="far fa-trash-alt fa-lg"></i></button>
+                <button class="btn-ben" v-on:click="deleteMovie({movie})"><i class="far fa-trash-alt fa-lg"></i></button>
               </div>
             </div>
 
             <p class="card-title">{{movie.title}}</p>
-            <p class="card-author">{{movie.reaName}}</p>
-            <p class="card-author">{{movie.reaDate}} - {{movie.reaNatio}}</p>
+            <p class="card-author">{{movie.directName}}</p>
+            <p class="card-author">{{movie.directDate}} - {{movie.directNat}}</p>
             <p class="card-tag">{{movie.year}}</p>
-            <p class="card-tag">{{movie.kind}}</p>
+            <p class="card-tag">{{movie.gender}}</p>
             <p class="card-tag">{{movie.language}}</p>
 
           </div>
@@ -43,12 +43,9 @@
       }
     },
     methods: {
-      delMovie: function () {
+      deleteMovie () {
         this.$store.dispatch('delMovie', {id: this.movie.id})
         this.$router.push('/')
-      },
-      onLoadMovie (id) {
-        this.$router.push('/movies/' + id)
       }
     }
   }
@@ -219,6 +216,7 @@
   .btn-ben{
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
 
   .btn-ben i{

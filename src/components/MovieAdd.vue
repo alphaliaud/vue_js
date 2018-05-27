@@ -1,36 +1,28 @@
 <template>
   <div>
     <Header></Header>
-    <div class="container mt-5">
-      <h4>Nouveau Film</h4>
+    <div class="container add-style ">
       <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-12 text-center card-style-input">
+          <h4>Ajout d'un nouveau Film</h4>
           <form @submit.prevent="onaddMovie">
-            <label for="title">Titre :</label>
-            <input class="form-control" v-model="title" id="title">
+            <input class="form-style inline" v-model="title" id="title" placeholder="Title">
 
-            <label for="date">Date de sortie :</label>
-            <input class="form-control" v-model="year" id="date">
+            <input class="form-style" v-model="year" id="date" placeholder="Date">
 
-            <label for="genre">Genre :</label>
-            <input class="form-control" v-model="kind" id="genre">
+            <input class="form-style" v-model="gender" id="genre" placeholder="Gender">
 
-            <label for="langue">Langue :</label>
-            <input class="form-control" v-model="language" id="langue">
+            <input class="form-style" v-model="language" id="langue" placeholder="Language">
 
-            <label for="realisateur">Réalisateur :</label>
-            <input class="form-control" v-model="reaName" id="realisateur">
+            <input class="form-style" v-model="directName" id="realisateur" placeholder="Director">
 
-            <label for="dateN">Date de naissance :</label>
-            <input class="form-control" v-model="reaDate" id="dateN">
+            <input class="form-style" v-model="directDate" id="dateN" placeholder="Director Date">
 
-            <label for="Natio">Nationalité :</label>
-            <input class="form-control" v-model="reaNatio" id="Natio">
+            <input class="form-style" v-model="directNat" id="Natio" placeholder="Nation">
 
-            <label for="poster">Affiche :</label>
-            <input class="form-control" v-model="poster" id="poster">
+            <input class="form-style" v-model="poster" id="poster" placeholder="Poster: URL">
 
-            <button class=" mt-3 btn btn-outline-success" type="submit">Enregistrer</button>
+            <button class="btn btn-outline-success mt-3" type="submit"><i class="fas fa-check-circle fa-2x"></i></button>
           </form>
         </div>
         <div class="col-sm-5">
@@ -48,17 +40,15 @@
         title: '',
         year: '',
         language: '',
-        kind: '',
-        reaName: '',
-        reaDate: '',
-        reaNatio: '',
+        gender: '',
+        directName: '',
+        directDate: '',
+        directNat: '',
         poster: ''
       }
     },
     components: {
         Header
-    },
-    computed: {
     },
     methods: {
       onaddMovie () {
@@ -66,10 +56,10 @@
           title: this.title,
           year: this.year,
           language: this.language,
-          kind: this.kind,
-          reaName: this.reaName,
-          reaDate: this.reaDate,
-          reaNatio: this.reaNatio,
+          gender: this.gender,
+          directName: this.directName,
+          directDate: this.directDate,
+          directNat: this.directNat,
           poster: this.poster
         }
         this.$store.dispatch('addMovie', movieData)
@@ -78,3 +68,60 @@
     }
   }
 </script>
+
+<style>
+  .add-style{
+
+  }
+
+  input::placeholder{
+    color:white;
+  }
+
+  form label, form input{
+    color:white;
+  }
+
+  .form-style{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    background-color: transparent;
+    margin: 10px 0;
+  }
+
+  .flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-center{
+    text-align: center;
+  }
+
+  .card-style-input{
+    padding: 30px 30px;
+    border-radius:20px;
+    border: 1px dashed #90d4ca;
+
+  }
+
+  h4{
+    color:white;
+    text-transform: uppercase;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    background-color: #90d4ca;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+</style>
